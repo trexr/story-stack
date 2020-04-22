@@ -1,23 +1,20 @@
-{% extends "base.html" %}
-
-{% block title %}
-    My Site - Home
-{% endblock title %}
-
-
+{% extends "base.html" %} {% block title %} My Site - Home {% endblock title %}
 {% block content %}
 <div class="jumbotron">
-  <h1 class="display-4">My Site</h1>
-  <p class="lead">This is a simple Jumbotron component from Bootstrap 4.</p>
-  <hr class="my-4">
-  <p>Edit this to include your content.</p>
+  <h1 class="display-4">Save and Share Your Child's Creativity.</h1>
+  <p class="lead"></p>
+  <hr class="my-4" />
+  <p>
+    A safe place where your child’s unique art and stories can be saved and
+    shared with the people that matter.
+  </p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button"
+      >Learn more</a
+    >
   </p>
 </div>
 
 <p>More stuff. {{ example_context_variable }}.</p>
 
 {% endblock content %}
-
-
