@@ -2,19 +2,21 @@
 {% block title %} Posts {% endblock title %}
 {% block content %}
 {% load static %}
+<h1 class="my-5">Posts</h1>
 <div class="row">
-  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-    <h1>Posts</h1>
 
-    {% for post in posts %}
 
-    <div class="card  my-5">
-      <h5 class="card-title text-center">{{ post.title}}</h5>
-      <img src="{% static   post.img %}" />
+
+  {% for  post in posts %}
+  <div class="col-sm-6 col-md-4 my-3 ">
+    <h5 class="text-left">{{ post.title}}</h5>
+    <div class="">
+
+      <img class="img-fluid" src="/static/posts/images/{{  post.img }}" />
 
     </div>
-
-    {% endfor %}
   </div>
+  {% endfor %}
+
 </div>
 {% endblock %}
