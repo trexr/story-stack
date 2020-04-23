@@ -1,3 +1,4 @@
+# Kevin added this
 ![Kickstart Coding Logo](./apps/core/static/images/kickstart_coding_logo.png)
 
 # Kickstart Coding: Django Project Starter
