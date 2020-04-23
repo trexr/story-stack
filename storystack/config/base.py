@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 LOCAL_APPS = [
     'apps.core',
     'apps.accounts',
+    'apps.posts',
 ]
 
 THIRD_PARTY_APPS = [

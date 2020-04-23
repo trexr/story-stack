@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Posts {% endblock title %}
+{% block content %}
+{% load static %}
+<div class="row">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <h1>Posts</h1>
+
+    {% for post in posts %}
+
+    <div class="card  my-5">
+      <h5 class="card-title text-center">{{ post.title}}</h5>
+      <img src="{% static   post.img %}" />
+
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

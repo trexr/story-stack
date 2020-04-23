@@ -21,9 +21,11 @@ from django.conf import settings
 urlpatterns = [
     path('', include('apps.core.urls')),
     path('account/', include('apps.accounts.urls')),
+    path('posts/', include('apps.posts.urls')),
     path('admin/', admin.site.urls),
 
-] + static( # Add in uploaded media files
+
+] + static(  # Add in uploaded media files
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
 
@@ -32,5 +34,5 @@ urlpatterns = [
 if settings.DEBUG:
     if "debug_toolbar" in settings.INSTALLED_APPS:
         import debug_toolbar
-        urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
-
+        urlpatterns = [
+            path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
