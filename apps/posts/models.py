@@ -8,7 +8,7 @@ class Post(models.Model):
     slug = models.CharField(max_length=225)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    #add in thumbnail and author
+    storyimage = models.ImageField(default='default.jpg', blank=True)
     # add in
 
     def __str__(self):

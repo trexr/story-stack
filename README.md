@@ -1,4 +1,8 @@
-![Kickstart Coding Logo](./apps/core/static/images/kickstart_coding_logo.png)
+
+## About
+
+
+
 
 # Kickstart Coding: Django Project Starter
 
@@ -9,7 +13,7 @@ It provides a solid foundation for building a Django project that's ready to
 launch to Heroku or similar web-hosting service.
 
 
-## About
+
 
 ### Features
 
