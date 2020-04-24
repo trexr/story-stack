@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -40,4 +40,4 @@ def post_create(request):
         'form': form
     }
 
-    return render(request, 'posts/post_create.html')
+    return render(request, 'posts/post_create.html', context)

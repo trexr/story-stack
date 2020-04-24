@@ -9,7 +9,7 @@
 
   <div class="col-sm-12 col-md-4 my-3 ">
     <div class="post__story">
-      <h2>Create Story</h2>
+      <h2>Add a Story</h2>
       <form class="form" action="{% url 'posts:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
