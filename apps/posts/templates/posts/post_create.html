@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Post {% endblock title %}
+{% block content %}
+
+<div class="text-center my-4">
+
+</div>
+<div class="row align-items-center">
+
+  <div class="col-sm-12 col-md-4 my-3 ">
+    <div class="post__story">
+      <h2>Create Story</h2>
+      <form class="form" action="{% url 'posts:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value="Create">
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}
