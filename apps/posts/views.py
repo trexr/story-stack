@@ -15,4 +15,10 @@ def view_all_posts(request):
 
 
 def post_detail(request, slug):
-    return HttpResponse(slug)
+    # return HttpResponse(slug)
+    post = Post.objects.get(slug=slug)
+    context = {
+        'post':  post
+    }
+
+    return render(request, 'posts/post_detail.html', context)
