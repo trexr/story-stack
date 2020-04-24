@@ -1,7 +1,9 @@
 from django.urls import path, re_path
 from apps.posts import views
 
+app_name = 'posts'
+
 urlpatterns = [
-    path('', views.view_all_posts),
+    path('', views.view_all_posts, name="list"),
     re_path(r'^(?P<slug>[\w-]+)/$', views.post_detail)
 ]
