@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Post {% endblock title %}
+{% block content %}
+{% load static %}
+<div class="text-center my-4">
+
+</div>
+<div class="row align-items-center">
+
+  <div class="col-sm-12 col-md-4 my-3 ">
+    <div class="post__story">
+      <h2>{{ post.title}}</h2>
+      <h6>{{ post.date|date:"M d, Y" }}</h6>
+      <P>
+        {{post.body}}</P>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-8 my-3 ">
+    <div class="post__img">
+      <img class="img-fluid" src=" {{  post.storyimage.url }}" />
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

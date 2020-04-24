@@ -9,12 +9,14 @@
 
   {% for  post in posts %}
   <div class="col-sm-6 col-md-4 my-3 ">
-    <h5 class="text-left">{{ post.title}}</h5>
-    <div class="">
+    <a href="{{ post.slug}}">
+      <h5 class="text-left">{{ post.title}}</h5>
+      <div class="post__img">
 
-      <img class="img-fluid" src="/static/posts/images/{{  post.img }}" />
+        <img class="img-fluid" src="/static/posts/images/{{  post.storyimage }}" />
 
-    </div>
+      </div>
+    </a>
   </div>
   {% endfor %}
 
