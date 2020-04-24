@@ -6,6 +6,7 @@ from . import forms
 # Create your views here.
 
 
+@login_required(login_url='/account/login/')
 def view_all_posts(request):
     posts = Post.objects.all().order_by('date')
 
