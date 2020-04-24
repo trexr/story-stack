@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -22,3 +23,9 @@ def post_detail(request, slug):
     }
 
     return render(request, 'posts/post_detail.html', context)
+
+
+@login_required(login_url='/account/login/')
+def post_create(request):
+
+    return render(request, 'posts/post_create.html')
