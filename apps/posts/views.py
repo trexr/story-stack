@@ -31,6 +31,10 @@ def post_create(request):
     if request.method == 'POST':
         form = forms.CreatePost(request.POST, request.FILES)
         if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            print(instance)
+            instance.save()
             return redirect('posts:list')
 
     else:
