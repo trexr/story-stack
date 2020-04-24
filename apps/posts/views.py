@@ -33,7 +33,6 @@ def post_create(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
-            print(instance)
             instance.save()
             return redirect('posts:list')
 

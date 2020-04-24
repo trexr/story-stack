@@ -18,6 +18,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    # method for generating unique post urls - aka slugs
     def get_unique_slug(self):
         slug = slugify(self.title)
         unique_slug = slug
@@ -27,6 +28,7 @@ class Post(models.Model):
             num += 1
         return unique_slug
 
+    # may need better solution than overriding save methond
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = self.get_unique_slug()
