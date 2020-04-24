@@ -16,6 +16,8 @@ def log_in(request):
             # User has specified valid credentials, have user log-in, and then
             # redirect back home
             login(request, form.get_user())
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
             return redirect('posts:list')
     else:
         form = AuthenticationForm()
