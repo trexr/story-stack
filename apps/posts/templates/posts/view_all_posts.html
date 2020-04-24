@@ -2,14 +2,24 @@
 {% block title %} Posts {% endblock title %}
 {% block content %}
 {% load static %}
-<h1 class="my-5">Posts</h1>
+<div class="row align-items-center my-5">
+  <div class="col-sm-8 col-md-8  ">
+    <h1 class="">Stories</h1>
+  </div>
+  <div class="col-sm-4 col-md-4  text-right">
+    <a href="{% url 'posts:create'%}">
+      <span class=" btn btn-primary">
+        Add Another +</span></a>
+
+  </div>
+</div>
 <div class="row">
 
 
 
   {% for  post in posts %}
-  <div class="col-sm-6 col-md-4 my-3 ">
-    <a href="{{ post.slug}}">
+  <div class=" col-sm-6 col-md-4 my-3 ">
+    <a href=" {{ post.slug}}">
       <h5 class="text-left">{{ post.title}}</h5>
       <div class="post__img">
 
