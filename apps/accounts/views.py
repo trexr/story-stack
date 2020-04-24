@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from apps.accounts.forms import UserEditForm, SignupForm
 from apps.accounts.models import User
 
+
 def log_in(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -15,7 +16,7 @@ def log_in(request):
             # User has specified valid credentials, have user log-in, and then
             # redirect back home
             login(request, form.get_user())
-            return redirect('home')
+            return redirect('/posts/')
     else:
         form = AuthenticationForm()
 
@@ -87,4 +88,3 @@ def edit_profile(request):
         'form': form,
     }
     return render(request, 'accounts/edit_profile.html', context)
-
