@@ -53,6 +53,7 @@ def logout_view(request):
     return redirect('home')
 
 
+@login_required(login_url='/account/login/')
 def view_all_users(request):
     all_users = User.objects.all()
     context = {
