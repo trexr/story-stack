@@ -1,20 +1,47 @@
-{% extends "base.html" %} {% block title %} My Site - Home {% endblock title %}
+{% extends "base.html" %} {% block title %} StoryStack - Home {% endblock title %}
+{% load bootstrap4 %} 
 {% block content %}
 <div class="jumbotron">
-  <h1 class="">Save and Share Your Child's Creativity.</h1>
-  <p class="lead"></p>
-  <hr class="my-4" />
-  <p>
-    A safe place where your child’s unique art and stories can be saved and
-    shared with the people that matter.
-  </p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button"
-      >Learn more</a
-    >
-  </p>
+  <div class="row">
+    <div class="col-md-7">
+      <h1 class="">Save and Share Your Child's Creativity.</h1>
+        <p class="lead"></p>
+      <hr class="my-4" />
+        <p> A safe place where your child’s unique art and stories can be saved and
+      shared with the people that matter. </p>
+        <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a></p>
+    </div>
+    <div class="col-md-5">
+      <h4 class="card-title text-center">Log In</h4>
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log In</button>
+    </div>
+  </div>
 </div>
-
-<p>More stuff. {{ example_context_variable }}.</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img class="about-image" src="https://placekitten.com/640/360
+      " width="125" height="125" style="border-radius: 50%;" alt="">
+      <p>Upload photos of your child's art</p>
+    </div>
+    <div class="col">
+      <img class="about-image" src="https://placekitten.com/640/360
+      " width="125" height="125" style="border-radius: 50%;" alt="">
+      <p>Record a story</p>
+    </div>
+    <div class="col">
+      <img class="about-image" src="https://placekitten.com/640/360
+      " width="125" height="125" style="border-radius: 50%;" alt="">
+      <p>Share only with the people you want</p>
+    </div>
+    <div class="col">
+      <img class="about-image" src="https://placekitten.com/640/360
+      " width="125" height="125" style="border-radius: 50%;" alt="">
+      <p>Keep your child's creativity and watch them progress</p>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
