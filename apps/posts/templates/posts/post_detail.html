@@ -8,6 +8,8 @@
       <h2>{{ post.title}}</h2>
 
       <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }}</h6>
+      <p><a href={% url "posts:edit_post"  post.slug %}>edit</a></p>
+
       <p>
         {{post.body}}
       </p>

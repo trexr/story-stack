@@ -30,6 +30,25 @@ def post_detail(request, slug):
 
 
 @login_required(login_url='/account/login/')
+def post_edit(request, slug):
+    # return HttpResponse(slug)
+    post = Post.objects.get(slug=slug)
+    form = forms.CreatePost(instance=post)
+
+    if request.method == 'POST':
+        form = forms.CreatePost(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('/posts/')
+
+    context = {
+        'form':  form
+    }
+
+    return render(request, 'posts/post_edit.html', context)
+
+
+@login_required(login_url='/account/login/')
 def post_create(request):
     if request.method == 'POST':
         form = forms.CreatePost(request.POST, request.FILES)
