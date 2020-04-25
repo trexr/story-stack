@@ -8,10 +8,12 @@ from . import forms
 
 @login_required(login_url='/account/login/')
 def view_all_posts(request):
+    author=request.user
     posts = Post.objects.all().order_by('date')
+    posts_by_user = posts.filter(author=author)
 
     context = {
-        'posts': posts
+        'posts_by_user': posts_by_user
     }
 
     return render(request, 'posts/view_all_posts.html', context)
