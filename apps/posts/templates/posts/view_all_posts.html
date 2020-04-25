@@ -22,8 +22,9 @@
     <a href=" {{ post.slug}}">
       <h5 class="text-left">{{ post.title}}</h5>
       <div class="post__img">
-
+        {% if post.storyimage.url != None %}
         <img class="img-fluid" src="{{  post.storyimage.url }}" />
+        {% endif %}
 
       </div>
     </a>
