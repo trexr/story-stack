@@ -12,6 +12,7 @@ class Post(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     storyimage = models.ImageField(default='default.jpg', blank=True)
+    deleted = models.BooleanField(default=False)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
 
