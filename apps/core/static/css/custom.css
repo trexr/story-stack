@@ -9,7 +9,7 @@ h1 {
   font-weight: 900;
 }
 .navbar {
-  background: linear-gradient(135deg, #f2f9fe 0%, #d6f0fd 100%);
+  background: linear-gradient(135deg, #000000 0%, #b91c4b 100%);
 }
 .navbar-brand {
   text-transform: uppercase;
@@ -34,3 +34,29 @@ h1 {
 .col p {
   text-align: center;
 }
+
+li a {
+  color:pink;
+}
+
+.brand {
+  color:#b30047;
+}
+
+.btn-primary {
+  color: black;
+  background-color: #990066;
+}
+
+a:hover {
+  color:#ff66cc;
+}
+
+.btn:hover {
+  color:#ff66cc;
+  background-color: #990066;
+}
+
+h5 {
+  color: black;
+} 
