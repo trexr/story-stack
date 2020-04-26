@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 @login_required(login_url='/account/login/')
 def view_all_posts(request):
     author = request.user
-    posts = Post.objects.all().order_by('date')
+    posts = Post.objects.filter(deleted=False).order_by('date')
     posts_by_user = posts.filter(author=author)
 
     context = {
@@ -24,6 +24,9 @@ def view_all_posts(request):
 def post_detail(request, slug):
     # return HttpResponse(slug)
     post = Post.objects.get(slug=slug)
+    if post.deleted == True:
+        return redirect('/403/')
+
     context = {
         'post':  post
     }
@@ -36,11 +39,17 @@ def post_edit(request, slug):
     # return HttpResponse(slug)
     post = Post.objects.get(slug=slug)
     form = forms.CreatePost(instance=post)
+    if post.deleted == True:
+        return redirect('/403/')
 
     if request.method == 'POST':
         form = forms.CreatePost(request.POST, instance=post)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            print(request.POST)
+            if 'Delete' in request.POST:
+                instance.deleted = True
+            instance.save()
             return redirect('/posts/')
 
     context = {

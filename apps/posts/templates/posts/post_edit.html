@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
+
 {% block title %} Post {% endblock title %}
 {% block content %}
-
+{% load bootstrap4 %}
 
 {% if user.id == post.author_id %}
 
 <div class="text-center my-4">
 
 
-  <div class="breadcrumbs">
+  <div class="breadcrumbs text-left">
     <a href="{% url 'posts:list' %}">Collection</a>
     {% block crumbs %}
     {% if form.title %} &rsaquo; {{ form.title.value }}{% endif %}
     {% endblock %}
 
   </div>
-  <div class="row align-items-center">
+  <div class="row align-items-center text-left">
 
-    <div class="col-sm-12 col-md-4 my-3 ">
+    <div class="col-sm-12 col-md-12 my-3 ">
       <div class="post__story">
 
-        <h2>Add a Story</h2>
+        <h2>Update your Story</h2>
         <form class="form" action="" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          {{ form.as_p }}
-          <input type='submit' value="Update">
+          {% bootstrap_form form %}
+          <input type='submit' value="Update" class="btn btn-primary">
+          <input type='submit' name="Delete" value="Delete" class="btn btn-warning">
       </div>
 
 
@@ -32,12 +34,6 @@
   </div>
   {% else %}
 
-
-  <h1>Forbidden (403)</h1>
-
-  <p>CSRF verification failed. Request aborted.</p>
-
-
-  {% endif %}
+  <h1>You are not the author of this post.</h1>
   {% endif %}
   {% endblock %}

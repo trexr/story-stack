@@ -28,3 +28,10 @@ def about(request):
 
     return render(request, 'pages/about.html', context)
 
+
+def notlongeravailable(request):
+    context = {
+    }
+
+    return render(request, 'pages/403.html', context)
+
