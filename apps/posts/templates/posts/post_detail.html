@@ -26,9 +26,12 @@
     </div>
   </div>
   <div class="col-sm-12 col-md-8 my-3">
+    {% if post.storyimage.url != None %}
     <div class="post__img">
       <img class="img-fluid" src=" {{  post.storyimage.url }}" />
     </div>
+    {% endif %}
+
   </div>
 </div>
 {% else%}

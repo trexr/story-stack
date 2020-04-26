@@ -9,9 +9,9 @@ from django.utils.text import slugify
 class Post(models.Model):
     title = models.CharField(max_length=142)
     slug = models.CharField(max_length=225)
-    body = models.TextField()
+    body = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    storyimage = models.ImageField(default='default.jpg', blank=True)
+    storyimage = models.ImageField(default='default.jpg')
     deleted = models.BooleanField(default=False)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
