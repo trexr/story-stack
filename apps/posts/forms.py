@@ -6,3 +6,8 @@ class CreatePost(forms.ModelForm):
     class Meta:
         model = models.Post
         fields = ['title', 'body', 'storyimage']
+        labels = {
+            "body": "Story",
+            "storyimage": "Art Image"
+
+        }

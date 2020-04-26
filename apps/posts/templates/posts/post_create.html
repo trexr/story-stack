@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block title %} Post {% endblock title %}
 {% block content %}
+{% load bootstrap4 %}
+
 
 <div class="breadcrumbs">
   <a href="{% url 'posts:list' %}">Collection</a>
@@ -10,13 +12,13 @@
 </div>
 <div class="row align-items-center">
 
-  <div class="col-sm-12 col-md-4 my-3 ">
+  <div class="col-sm-12  my-3 ">
     <div class="post__story">
       <h2>Add a Story</h2>
       <form class="form" action="{% url 'posts:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type='submit' value="Create">
+        {% bootstrap_form form %}
+        <input type='submit' value="Create" class="btn btn-primary">
     </div>
 
 
