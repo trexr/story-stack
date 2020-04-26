@@ -1,22 +1,25 @@
 {% extends "base.html" %} {% block title %} StoryStack - Home {% endblock title %}
-{% load bootstrap4 %} 
+{% load bootstrap4 %}
 {% block content %}
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-7">
       <h1 class="">Save and Share Your Child's Creativity.</h1>
-        <p class="lead"></p>
+      <p class="lead"></p>
       <hr class="my-4" />
-        <p> A safe place where your child’s unique art and stories can be saved and
-      shared with the people that matter. </p>
-        <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a></p>
+      <p> A safe place where your child’s unique art and stories can be saved and
+        shared with the people that matter. </p>
+      <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a></p>
     </div>
+    <!-- form is not displayed if user is login -->
+    {% if user.is_authenticated == False%}
     <div class="col-md-5">
       <h4 class="card-title text-center">Log In</h4>
       {% csrf_token %}
       {% bootstrap_form form %}
       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log In</button>
     </div>
+    {% endif %}
   </div>
 </div>
 <div class="container">
