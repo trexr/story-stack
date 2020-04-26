@@ -10,7 +10,7 @@
 
 
   <div class="breadcrumbs text-left">
-    <a href="{% url 'posts:list' %}">Collection</a>
+    <a href="{% url 'posts:user_list' post.author.id %}">Collection</a>
     {% block crumbs %}
     {% if form.title %} &rsaquo; {{ form.title.value }}{% endif %}
     {% endblock %}

@@ -7,7 +7,7 @@
     <h1 class="">StoryBoard</h1>
   </div>
   <div class="col-sm-4 col-md-4  text-right">
-    <a href="{% url 'posts:create'%}">
+    <a href="{% url 'posts:create' authorid %}">
       <span class=" btn btn-primary">
         Add Another +</span></a>
 
@@ -19,11 +19,12 @@
 
   {% for post in posts_by_user %}
   <div class=" col-sm-6 col-md-4 my-3 ">
-    <a href=" {{ post.slug}}">
+    <a href="{% url 'posts:view_user_post' post.author.id post.slug %}">
       <h5 class="text-left">{{ post.title}}</h5>
+      <h6 class="text-left posts__date">{{ post.date|date:"M d, Y" }}</h6>
       <div class="post__img">
         {% if post.storyimage.url != None %}
-        <img class="img-fluid" src="{{  post.storyimage.url }}" />
+        <img class=" img-fluid" src="{{  post.storyimage.url }}" />
         {% endif %}
 
       </div>
