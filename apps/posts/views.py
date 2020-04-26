@@ -3,6 +3,7 @@ from .models import Post
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -43,7 +44,8 @@ def post_edit(request, slug):
             return redirect('/posts/')
 
     context = {
-        'form':  form
+        'form':  form,
+        'post': post,
     }
 
     return render(request, 'posts/post_edit.html', context)

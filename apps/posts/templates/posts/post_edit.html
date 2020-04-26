@@ -2,6 +2,8 @@
 {% block title %} Post {% endblock title %}
 {% block content %}
 
+{% if user.id == post.author_id %}
+
 <div class="text-center my-4">
 
 </div>
@@ -9,6 +11,7 @@
 
   <div class="col-sm-12 col-md-4 my-3 ">
     <div class="post__story">
+
       <h2>Add a Story</h2>
       <form class="form" action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -19,4 +22,8 @@
 
   </div>
 </div>
+{% else %}
+
+<h1>You are not the author of this post.</h1>
+{% endif %}
 {% endblock %}

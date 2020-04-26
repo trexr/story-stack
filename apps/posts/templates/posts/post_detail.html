@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %} Post {% endblock title %}
 {% block content %}
 {% load static %}
-<div class="text-center my-4"></div>
+{% if user.id == post.author_id %}
 <div class="row align-items-center">
   <div class="col-sm-12 col-md-4 my-3">
     <div class="post__story">
@@ -21,4 +21,10 @@
     </div>
   </div>
 </div>
+{% else%}
+<h1>You should not be only this page.</h1>
+<h1>Please make a post.</h1>
+{% endif %}
+
+
 {% endblock %}
