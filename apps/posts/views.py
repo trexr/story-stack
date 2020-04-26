@@ -35,7 +35,9 @@ def post_edit(request, slug):
     # return HttpResponse(slug)
     post = Post.objects.get(slug=slug)
     form = forms.CreatePost(instance=post)
-
+    print(slug)
+    print(request.user)
+    # if(accounts_user.username = request.user)
     if request.method == 'POST':
         form = forms.CreatePost(request.POST, instance=post)
         if form.is_valid():
