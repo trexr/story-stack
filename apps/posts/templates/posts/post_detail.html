@@ -4,44 +4,45 @@
 
 {% if user.id == post.author_id %}
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-  <a href="{% url 'posts:user_list' post.author.id%}">Collection</a>
-  {% block crumbs %}
-  {% if post.title %} &rsaquo; {{ post.title }}{% endif %}
+<div class="my-4">
+  <div class="breadcrumbs">
+    <a href="{% url 'posts:user_list' post.author.id%}">StoryBoard</a>
+    {% block crumbs %}
+    {% if post.title %} &rsaquo; {{ post.title }}{% endif %}
+    {% endblock %}
+  </div>
   {% endblock %}
-</div>
-{% endblock %}
 
-<div class="row align-items-center">
-  <div class="col-sm-12 col-md-4 my-3">
-    <div class="post__story">
-      <h2>{{ post.title}}</h2>
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-4 my-3">
+      <div class="post__story">
+        <h2>{{ post.title}}</h2>
 
-      <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }}</h6>
-      <p><a href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></p>
+        <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }}</h6>
+        <p><a href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></p>
 
-      <p>
-        {{post.body}}
-      </p>
+        <p>
+          {{post.body}}
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 my-3">
+      {% if post.storyimage.url != None %}
+      <div class="post__img">
+        <img class="img-fluid" src=" {{  post.storyimage.url }}" />
+      </div>
+      {% endif %}
+
     </div>
   </div>
-  <div class="col-sm-12 col-md-8 my-3">
-    {% if post.storyimage.url != None %}
-    <div class="post__img">
-      <img class="img-fluid" src=" {{  post.storyimage.url }}" />
-    </div>
-    {% endif %}
+  {% else%}
 
-  </div>
+  <h1>Forbidden (403)</h1>
+
+  <p>CSRF verification failed. Request aborted.</p>
+
+
+  {% endif %}
 </div>
-{% else%}
-
-<h1>Forbidden (403)</h1>
-
-<p>CSRF verification failed. Request aborted.</p>
-
-
-{% endif %}
-
 
 {% endblock %}
