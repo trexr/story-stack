@@ -2,6 +2,7 @@
 {% block content %}
 {% load static %}
 
+{% if user.id == post.author_id %}
 {% block breadcrumbs %}
 <div class="breadcrumbs">
   <a href="{% url 'posts:list' %}">Collection</a>
@@ -10,7 +11,7 @@
   {% endblock %}
 </div>
 {% endblock %}
-<div class="text-center my-4"></div>
+
 <div class="row align-items-center">
   <div class="col-sm-12 col-md-4 my-3">
     <div class="post__story">
@@ -30,4 +31,10 @@
     </div>
   </div>
 </div>
+{% else%}
+<h1>You should not be only this page.</h1>
+<h1>Please make a post.</h1>
+{% endif %}
+
+
 {% endblock %}
