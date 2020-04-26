@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+
 {% block title %} Post {% endblock title %}
 {% block content %}
-
+{% load bootstrap4 %}
 
 {% if user.id == post.author_id %}
 
@@ -23,9 +24,9 @@
         <h2>Update your Story</h2>
         <form class="form" action="" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          {{ form.as_p }}
-          <input type='submit' value="Update">
-          <input type='submit' name="Delete" value="Delete">
+          {% bootstrap_form form %}
+          <input type='submit' value="Update" class="btn btn-primary">
+          <input type='submit' name="Delete" value="Delete" class="btn btn-warning">
       </div>
 
 
