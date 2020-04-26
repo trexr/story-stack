@@ -19,8 +19,9 @@ def view_all_users_posts(request):
         # 'posts_by_user': posts_by_user,
         'authorid': authorid
     }
-    # print(author.id)
 
+    # return redirect('posts:user_list', id=authorid)
+    # TODO: may want to create feed with friends stories
     return render(request, 'posts/view_all_users_posts.html', context)
 
 
