@@ -31,6 +31,5 @@ class Post(models.Model):
 
     # may need better solution than overriding save methond
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = self.get_unique_slug()
+        self.slug = self.get_unique_slug()
         super().save(*args, **kwargs)
