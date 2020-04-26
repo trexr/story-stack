@@ -4,8 +4,11 @@ from apps.posts import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('', views.view_all_posts, name="list"),
-    re_path(r'^create/$', views.post_create, name="create"),
-    re_path(r'^edit-post/(?P<slug>[\w-]+)', views.post_edit, name="edit_post"),
-    re_path(r'^(?P<slug>[\w-]+)/$', views.post_detail),
+    path('', views.view_all_users_posts, name="list"),
+    re_path(r'^(?P<id>[\w-]+)/$', views.view_all_posts, name="user_list"),
+    re_path(r'^(?P<id>[\w-]+)/create/$', views.post_create, name="create"),
+    re_path(r'^(?P<id>[\w-]+)/edit-post/(?P<slug>[\w-]+)',
+            views.post_edit, name="edit_post"),
+    re_path(r'^(?P<id>[\w-]+)/(?P<slug>[\w-]+)/$',
+            views.post_detail, name="view_user_post"),
 ]

@@ -18,7 +18,7 @@ def log_in(request):
             login(request, form.get_user())
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
-            return redirect('posts:list')
+            return redirect('posts:user_list', request.user)
     else:
         form = AuthenticationForm()
 
