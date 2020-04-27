@@ -24,7 +24,20 @@
         <h2>Update your Story</h2>
         <form class="form" action="" method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          {% bootstrap_form form %}
+          <div class="row ">
+            <div class="col-sm-12 col-md-6">
+              {% bootstrap_form form %}
+            </div>
+            <div class="col-sm-12 col-md-6">
+              {% if form.storyimage != None %}
+              <div class="post__img">
+                <img class="img-fluid" src="{{ form.storyimage.value.url }}" />
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+
           <input type='submit' value="Update" class="btn btn-primary">
           <input type='submit' name="Delete" value="Delete" class="btn-delete">
       </div>
