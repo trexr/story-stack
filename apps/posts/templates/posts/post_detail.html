@@ -35,14 +35,11 @@
 
     </div>
   </div>
-
+  <h4>Share this story:</h4>
   <form action="/send-email" method="POST">
-<input name="name" placeholder="Name" />
-<input name="email" type="email" placeholder="Email" />
-<textarea name="message">
-</textarea>
-<button type="submit">Submit</button>
-</form>
+    <input name="email" type="email" placeholder="Email" />
+    <a class="btn btn-primary btn-lg" role="button" style="color:white">Share!</a>
+  </form>
   {% else%}
 
   <h1>Forbidden (403)</h1>
