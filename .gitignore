@@ -279,7 +279,7 @@ pip-selfcheck.json
 
 
 ### local images
-uploads/*
+storystack/uploads/*
 
 
 ### Project template
