@@ -55,6 +55,12 @@ def post_detail(request, slug, id):
     return render(request, 'posts/post_detail.html', context)
 
 
+def share_email(request):
+    email = request.POST["email"]
+    api_link = "https://api.mailgun.net/v3"
+    return redirect("/")
+
+
 @login_required(login_url='/account/login/')
 def post_edit(request, slug, id):
     # return HttpResponse(slug)
