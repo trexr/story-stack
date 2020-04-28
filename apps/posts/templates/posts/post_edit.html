@@ -10,7 +10,7 @@
 
 
   <div class="breadcrumbs text-left">
-    <a href="{% url 'posts:user_list' post.author.id %}">StoryBoard</a>
+    <a href="{% url 'posts:user_list' post.author.id %}">Storyboard</a>
     {% block crumbs %}
     {% if form.title %} &rsaquo; <a href="{% url 'posts:view_user_post' post.author.id post.slug %}">
       {{ form.title.value }}</a> {% endif %}
