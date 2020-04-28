@@ -22,7 +22,7 @@
         <p><a href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></p>
 
         <p>
-          {{post.body}}
+          {{ post.body|escape|linebreaks }}
         </p>
       </div>
     </div>
