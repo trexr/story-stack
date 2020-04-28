@@ -66,7 +66,7 @@ def send_email(request):
 		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
 		auth=("api", mailgun_api_key),
 		data={"from": "Excited User <mailgun@sandboxba7fef7146b9468892448dede05c27cf.mailgun.org>",
-			"to": "patrick.r.ware@gmail.com, YOU@sandboxba7fef7146b9468892448dede05c27cf.mailgun.org",
+			"to": "patrick.r.ware@gmail.com",
 			"subject": "Patrick wants to share a story with you!",
 			"text": "Testing Testing 1,2,3"})
     
