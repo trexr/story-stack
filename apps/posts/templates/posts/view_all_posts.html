@@ -2,7 +2,7 @@
 {% block title %} Posts {% endblock title %}
 {% block content %}
 {% load static %}
-<div class="row align-items-center my-5">
+<div class="row align-items-center mt-5 mb-3">
   <div class="col-sm-8 col-md-8  ">
     <h1 class="">StoryBoard</h1>
   </div>
@@ -18,11 +18,11 @@
 
 
   {% for post in posts_by_user %}
-  <div class=" col-sm-6 col-md-4 my-3 ">
+  <div class=" col-sm-6 col-md-4  mb-4">
     <a href="{% url 'posts:view_user_post' post.author.id post.slug %}">
       <h5 class="text-left">{{ post.title}}</h5>
       <h6 class="text-left posts__date">{{ post.date|date:"M d, Y" }}</h6>
-      <div class="post__img">
+      <div class="post__img shadow">
         {% if post.storyimage.url != None %}
         <img class=" img-fluid" src="{{  post.storyimage.url }}" />
         {% endif %}
