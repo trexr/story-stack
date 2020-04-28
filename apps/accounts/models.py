@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 # and a gravatar method. Feel free to add your own new fields here!
 
 class User(AbstractUser):
-
+    avatar = models.CharField(max_length=142)
     bio = models.TextField()
 
     def gravatar(self, size=None):

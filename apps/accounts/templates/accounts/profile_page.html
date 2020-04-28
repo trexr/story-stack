@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    @{{ user.username }}
+{{ user.username }}
 {% endblock title %}
 
 {% block content %}
 <div class="row">
     <div class="col-md-3">
-        <img src="{{ user.gravatar }}" />
+        <img src="{{ user.avatar }}" />
 
-        <h3>@{{ user.username }}</h3>
+        <h3>{{ user.username }}</h3>
         <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
         <p>{{ user.bio }}</p>
 
         {% if is_viewing_self %}
-            <a href="{% url "edit_profile" %}">Edit</a>
+        <a href="{% url "edit_profile" %}">Edit</a>
         {% endif %}
     </div>
 
     <div class="col-md-9">
-        stuff could go here...
+        <a href="{% url "avatar" %}">
+            <h1>Click here to get a new avatar!</h1>
+        </a>
     </div>
 </div>
 {% endblock %}
-

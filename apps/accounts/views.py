@@ -1,10 +1,12 @@
+import random, string
+import hashlib
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponseRedirect
 from apps.accounts.forms import UserEditForm, SignupForm
 from apps.accounts.models import User
 
@@ -91,3 +93,13 @@ def edit_profile(request):
         'form': form,
     }
     return render(request, 'accounts/edit_profile.html', context)
+
+def avatar(request):
+    N = 32
+    random_string = ''.join(random.choices(string.ascii_uppercase + string.digits, k = N)).lower()
+    hash_string = hashlib.md5(random_string.encode('utf-8')).hexdigest()
+    url = f'https://gravatar.com/avatar/{hash_string}?d=identicon'
+    current_user = User.objects.get(id=request.user.id)
+    current_user.avatar = url
+    current_user.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
