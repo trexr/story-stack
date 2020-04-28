@@ -74,7 +74,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'view_profile' request.user %}">
                             {{ request.user }}
-                            <img src="{{ user.gravatar }}" class="navbar-avatar" />
+                            <img src="
+                            {% if user.avatar %}
+                            {{ user.avatar }}
+                            {% else %}
+                            {{ user.gravatar }}
+                            {% endif %}
+                            " class="navbar-avatar" />
                         </a>
                     </li>
                     {% else %}
