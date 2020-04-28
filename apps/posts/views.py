@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
 from django.contrib.auth.models import User
+import os
+import requests
+mailgun_api_key = os.environ["MAILGUN_API_KEY"]
 # Create your views here.
 
 
@@ -55,9 +58,19 @@ def post_detail(request, slug, id):
     return render(request, 'posts/post_detail.html', context)
 
 
-def share_email(request):
-    email = request.POST["email"]
-    api_link = "https://api.mailgun.net/v3"
+def send_email(request):
+#    email = request.POST["email"]
+#    api_link = "https://api.mailgun.net/v3"
+#    first_name = request.user.first_name
+    requests.post(
+		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
+		auth=("api", mailgun_api_key),
+		data={"from": "Excited User <mailgun@sandboxba7fef7146b9468892448dede05c27cf.mailgun.org>",
+			"to": "patrick.r.ware@gmail.com, YOU@sandboxba7fef7146b9468892448dede05c27cf.mailgun.org",
+			"subject": "Patrick wants to share a story with you!",
+			"text": "Testing Testing 1,2,3"})
+    
+    print("email sent")
     return redirect("/")
 
 
