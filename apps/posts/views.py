@@ -58,20 +58,20 @@ def post_detail(request, slug, id):
     return render(request, 'posts/post_detail.html', context)
 
 
-def send_email(request):
+def send_email(request, slug, id):
 #    email = request.POST["email"]
-#    api_link = "https://api.mailgun.net/v3"
-#    first_name = request.user.first_name
+    first_name = request.user.first_name
+    post = Post.objects.get(slug=slug)
     requests.post(
 		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
 		auth=("api", mailgun_api_key),
-		data={"from": "Excited User <mailgun@sandboxba7fef7146b9468892448dede05c27cf.mailgun.org>",
+		data={"from": "StoryStack <user@storystack.com>",
 			"to": "patrick.r.ware@gmail.com",
-			"subject": "Patrick wants to share a story with you!",
-			"text": "Testing Testing 1,2,3"})
+			"subject": first_name+" wants to share a story with you!",
+			"text": "Check out my story '"+ str(post) +"' on StoryStack:"})
     
     print("email sent")
-    return redirect("/")
+    return redirect("posts:view_user_post", id=id, slug=slug)
 
 
 @login_required(login_url='/account/login/')
