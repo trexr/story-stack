@@ -4,10 +4,28 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
 from django.contrib.auth.models import User
+from django import forms
+from django.core.validators import validate_email 
 import os
 import requests
 mailgun_api_key = os.environ["MAILGUN_API_KEY"]
 # Create your views here.
+
+
+#class MultiEmailField(forms.Field):
+#    def to_python(self, value):
+#        if not value:
+#            return []
+#        return value.split(',')
+
+#    def validate(self, value):
+#        super().validate(value)
+#        for email in value:
+#            validate_email(email)
+
+
+class EmailForm(forms.Form):
+    email = forms.EmailField()
 
 
 @login_required(login_url='/account/login/')
@@ -46,32 +64,54 @@ def view_all_posts(request, id):
 
 
 def post_detail(request, slug, id):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        # Send Mailgun email
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            first_name = request.user.first_name
+            post = Post.objects.get(slug=slug)
+            requests.post(
+		        "https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
+		        auth=("api", mailgun_api_key),
+		        data={"from": "StoryStack <user@storystack.com>",
+			        "to": email,
+			        "subject": first_name+" wants to share a story with you!",
+			        "text": "Check out my story '"+ str(post) +"' on StoryStack:"})
+            
+            print("email sent")
+            return redirect("posts:view_user_post", id=id, slug=slug)
+    
+    else:
+        form = EmailForm()
+
     # return HttpResponse(slug)
     post = Post.objects.get(slug=slug)
     if post.deleted == True:
         return redirect('/403/')
 
     context = {
-        'post':  post
+        'post':  post,
+        'form': form,
     }
 
     return render(request, 'posts/post_detail.html', context)
 
 
-def send_email(request, slug, id):
+#def send_email(request, slug, id):
 #    email = request.POST["email"]
-    first_name = request.user.first_name
-    post = Post.objects.get(slug=slug)
-    requests.post(
-		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
-		auth=("api", mailgun_api_key),
-		data={"from": "StoryStack <user@storystack.com>",
-			"to": "patrick.r.ware@gmail.com",
-			"subject": first_name+" wants to share a story with you!",
-			"text": "Check out my story '"+ str(post) +"' on StoryStack:"})
-    
-    print("email sent")
-    return redirect("posts:view_user_post", id=id, slug=slug)
+#    first_name = request.user.first_name
+#    post = Post.objects.get(slug=slug)
+#    requests.post(
+#		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
+#		auth=("api", mailgun_api_key),
+#		data={"from": "StoryStack <user@storystack.com>",
+#			"to": "patrick.r.ware@gmail.com",
+#			"subject": first_name+" wants to share a story with you!",
+#			"text": "Check out my story '"+ str(post) +"' on StoryStack:"})
+#    
+#    print("email sent")
+#    return redirect("posts:view_user_post", id=id, slug=slug)
 
 
 @login_required(login_url='/account/login/')

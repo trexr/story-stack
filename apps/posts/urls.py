@@ -11,5 +11,5 @@ urlpatterns = [
             views.post_edit, name="edit_post"),
     re_path(r'^(?P<id>[\w-]+)/(?P<slug>[\w-]+)/$',
             views.post_detail, name="view_user_post"),
-    re_path(r'^(?P<id>[\w-]+)/(?P<slug>[\w-]+)/send-email', views.send_email, name="send_email"),
+#    re_path(r'^(?P<id>[\w-]+)/(?P<slug>[\w-]+)/send-email', views.send_email, name="send_email"),
 ]

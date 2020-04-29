@@ -36,9 +36,10 @@
     </div>
   </div>
   <h4>Share this story:</h4>
-  <form action="/send-email" method="POST">
-    <input name="email" type="email" placeholder="Email" />
-    <a href= {% url "posts:send_email" post.author.id post.slug %} class="btn btn-primary btn-lg" role="button" style="color:white">Share!</a>
+  <form action="." method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-primary btn-lg" role="button" style="color:white">Share!</button>
   </form>
   {% else%}
 
