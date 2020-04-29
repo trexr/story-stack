@@ -23,7 +23,8 @@ urlpatterns = [
     path('account/', include('apps.accounts.urls')),
     path('posts/', include('apps.posts.urls')),
     path('admin/', admin.site.urls),
-
+    # path to change/reset password
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ] + static(  # Add in uploaded media files
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
