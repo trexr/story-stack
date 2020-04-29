@@ -278,6 +278,10 @@ pip-selfcheck.json
 .env
 
 
+### local images
+storystack/uploads/*
+
+
 ### Project template
 
 

@@ -1,26 +1,25 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    @{{ user.username }}
+{{ user.username }}
 {% endblock title %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-3">
-        <img src="{{ user.gravatar }}" />
+<div class="row col-md-9 mx-auto profile-box">
+        <div class="col-md-2 mx-auto my-auto">
+            <img src="{{ user.avatar }}" />
+            <a href="{% url "avatar" %}">
+                <p>New avatar</p>
+            </a>
+        </div>
+         <div class="col-md-7 mx-auto my-auto">
+            <h3>{{ user.username }}</h3>
+            <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
+            <p>{{ user.bio }}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
 
-        <h3>@{{ user.username }}</h3>
-        <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
-        <p>{{ user.bio }}</p>
-
-        {% if is_viewing_self %}
-            <a href="{% url "edit_profile" %}">Edit</a>
-        {% endif %}
-    </div>
-
-    <div class="col-md-9">
-        stuff could go here...
-    </div>
+            {% if is_viewing_self %}
+            <a href="{% url "edit_profile" %}">Edit Profile</a>
+            {% endif %}
+        </div>
 </div>
 {% endblock %}
-

@@ -51,7 +51,7 @@ def view_all_posts(request, id):
     author = request.user
     authorid = request.user.id
 
-    posts = Post.objects.filter(deleted=False).order_by('date')
+    posts = Post.objects.filter(deleted=False).order_by('-date')
     posts_by_user = posts.filter(author=author)
 
     context = {
@@ -110,19 +110,22 @@ def post_edit(request, slug, id):
     post = Post.objects.get(slug=slug)
 
     form = forms.CreatePost(instance=post)
-
+    print('form', post)
     if post.deleted == True:
         return redirect('/403/')
 
     if request.method == 'POST':
-        form = forms.CreatePost(request.POST, instance=post)
+        form = forms.CreatePost(request.POST, request.FILES, instance=post)
         if form.is_valid():
             instance = form.save(commit=False)
-            print(request.POST)
+            print(request.FILES)
             if 'Delete' in request.POST:
                 instance.deleted = True
             instance.save()
-            return redirect('posts:user_list', id=id)
+            context = {
+                'post':  post
+            }
+            return render(request, 'posts/post_detail.html', context)
 
     context = {
         'form':  form,

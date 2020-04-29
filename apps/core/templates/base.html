@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-md">
         <div class="container">
-            <a class="navbar-brand brand" href="/">
+            <a class="navbar-brand brand" style="margin-left: 25px;" href="/">
                 <!-- Add your logo here!  <img src="" /> -->
                 StoryStack
             </a>
@@ -61,11 +61,11 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     {% if request.user.is_authenticated %}
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{% url 'posts:list'  %}">Feed</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'posts:user_list' request.user.id %}">My Posts</a>
+                        <a class="nav-link" href="{% url 'posts:user_list' request.user.id %}">Storyboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Sign Out</a>
@@ -73,7 +73,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'view_profile' request.user %}">
                             {{ request.user }}
-                            <img src="{{ user.gravatar }}" class="navbar-avatar" />
+                            <img src="
+                            {% if user.avatar %}
+                            {{ user.avatar }}
+                            {% else %}
+                            {{ user.gravatar }}
+                            {% endif %}
+                            " class="navbar-avatar" />
                         </a>
                     </li>
                     {% else %}

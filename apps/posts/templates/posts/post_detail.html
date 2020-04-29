@@ -13,7 +13,7 @@
   </div>
   {% endblock %}
 
-  <div class="row align-items-center">
+  <div class="row align-items-top">
     <div class="col-sm-12 col-md-4 my-3">
       <div class="post__story">
         <h2>{{ post.title}}</h2>
@@ -22,13 +22,13 @@
         <p><a href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></p>
 
         <p>
-          {{post.body}}
+          {{ post.body|escape|linebreaks }}
         </p>
       </div>
     </div>
     <div class="col-sm-12 col-md-8 my-3">
       {% if post.storyimage.url != None %}
-      <div class="post__img">
+      <div class="post__img shadow">
         <img class="img-fluid" src=" {{  post.storyimage.url }}" />
       </div>
       {% endif %}
