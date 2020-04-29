@@ -126,6 +126,7 @@ LOGIN_URL = '/account/login/'
 # Specify we are using a custom user model
 AUTH_USER_MODEL = 'accounts.User'
 
-
+LOGIN_REDIRECT_URL ='/'
+LOGOUT_REDIRECT_URL  ='/'
 # need real email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
