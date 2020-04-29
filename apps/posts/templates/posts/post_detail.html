@@ -35,12 +35,18 @@
 
     </div>
   </div>
-  <h4>Share this story:</h4>
-  <form action="." method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button class="btn btn-primary btn-lg" role="button">Share!</button>
-  </form>
+  <div class="col-sm-12 col-md-4 my-3">
+    <h4>Share this story:</h4>
+    {% load bootstrap4 %}
+
+    <form method="POST" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% buttons %}
+        <button class="btn btn-primary btn-md" role="button">Share!</button>
+      {% endbuttons %}
+    </form>
+  </div>
   {% else%}
 
   <h1>Forbidden (403)</h1>
