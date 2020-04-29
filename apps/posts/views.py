@@ -68,16 +68,22 @@ def post_detail(request, slug, id):
         form = EmailForm(request.POST)
         # Send Mailgun email
         if form.is_valid():
+            # Get email from form
             email = form.cleaned_data['email']
+            # Define variables for email information
             first_name = request.user.first_name
             post = Post.objects.get(slug=slug)
+            title = str(post)
+            url_title = title.replace(" ","-")
+            authorid = request.user.id
+            post_url = "http://localhost:8000/posts/"+ str(authorid) +"/"+ url_title
             requests.post(
 		        "https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
 		        auth=("api", mailgun_api_key),
 		        data={"from": "StoryStack <user@storystack.com>",
 			        "to": email,
 			        "subject": first_name+" wants to share a story with you!",
-			        "text": "Check out my story '"+ str(post) +"' on StoryStack:"})
+			        "text": "Check out my story '"+ str(post) +"' on StoryStack: "+post_url})
             
             print("email sent")
             return redirect("posts:view_user_post", id=id, slug=slug)
@@ -96,22 +102,6 @@ def post_detail(request, slug, id):
     }
 
     return render(request, 'posts/post_detail.html', context)
-
-
-#def send_email(request, slug, id):
-#    email = request.POST["email"]
-#    first_name = request.user.first_name
-#    post = Post.objects.get(slug=slug)
-#    requests.post(
-#		"https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
-#		auth=("api", mailgun_api_key),
-#		data={"from": "StoryStack <user@storystack.com>",
-#			"to": "patrick.r.ware@gmail.com",
-#			"subject": first_name+" wants to share a story with you!",
-#			"text": "Check out my story '"+ str(post) +"' on StoryStack:"})
-#    
-#    print("email sent")
-#    return redirect("posts:view_user_post", id=id, slug=slug)
 
 
 @login_required(login_url='/account/login/')
