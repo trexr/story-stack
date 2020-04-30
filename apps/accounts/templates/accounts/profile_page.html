@@ -7,7 +7,11 @@
 {% block content %}
 <div class="row col-md-9 mx-auto profile-box">
     <div class="col-md-2 mx-auto my-auto">
+        {% if user.avatar %}
         <img src="{{ user.avatar }}" />
+        {% else %}
+        <img src="{{ user.gravatar }}" />
+        {% endif %}
         <a href="{% url "avatar" %}">
             <p>New avatar</p>
         </a>
