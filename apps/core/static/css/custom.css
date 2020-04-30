@@ -8,22 +8,19 @@ body {
 h1 {
   font-weight: 900;
 }
+
 .navbar {
   background: #ffffff
 }
+
 .navbar-brand {
   text-transform: uppercase;
   font-weight: 900;
 }
 
 .hero-image {
-  margin-bottom: 35px;
-}
-
-.hero-text {
-  position: absolute;
-  top: 118px;
-  left: 90px;
+  background: url('/static/images/smallstories_hero@2x.jpg');
+  background-size: auto;
 }
 
 .card-user {
@@ -46,7 +43,8 @@ h1 {
   text-align: center;
 }
 
-li a, .brand {
+li a,
+.brand {
   color: #222222;
   text-transform: uppercase;
 }
@@ -58,8 +56,8 @@ li a, .brand {
 }
 
 .btn-primary:hover {
-    color: #222222;
-    border: #222222 solid;
+  color: #222222;
+  border: #222222 solid;
 }
 
 .btn:hover {
@@ -68,7 +66,7 @@ li a, .brand {
 
 h5 {
   color: black;
-} 
+}
 
 .profile-box {
   border: solid #eeeeee;
