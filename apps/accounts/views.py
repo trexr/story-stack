@@ -1,4 +1,5 @@
-import random, string
+import random
+import string
 import hashlib
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
@@ -57,6 +58,10 @@ def logout_view(request):
 
 @login_required(login_url='/account/login/')
 def view_all_users(request):
+    # temporarily redirect to user account
+
+    return redirect("home")
+
     all_users = User.objects.all()
     context = {
         'users': all_users,
@@ -65,6 +70,7 @@ def view_all_users(request):
 
 
 def view_profile(request, username):
+
     user = User.objects.get(username=username)
 
     if request.user == user:
@@ -94,9 +100,11 @@ def edit_profile(request):
     }
     return render(request, 'accounts/edit_profile.html', context)
 
+
 def avatar(request):
     N = 32
-    random_string = ''.join(random.choices(string.ascii_uppercase + string.digits, k = N)).lower()
+    random_string = ''.join(random.choices(
+        string.ascii_uppercase + string.digits, k=N)).lower()
     hash_string = hashlib.md5(random_string.encode('utf-8')).hexdigest()
     url = f'https://gravatar.com/avatar/{hash_string}?d=identicon'
     current_user = User.objects.get(id=request.user.id)
