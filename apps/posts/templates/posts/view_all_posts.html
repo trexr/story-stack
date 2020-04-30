@@ -15,8 +15,6 @@
 </div>
 <div class="row">
 
-
-
   {% for post in posts_by_user %}
   <div class=" col-sm-6 col-md-4  mb-4">
     <a href="{% url 'posts:view_user_post' post.author.id post.slug %}">

@@ -13,19 +13,34 @@
   </div>
   {% endblock %}
 
-  <div class="row align-items-top">
+  <div class="row align-items-top align-content-stretch">
     <div class="col-sm-12 col-md-4 my-3">
-      <div class="post__story">
-        <h2>{{ post.title}}</h2>
+      <div class="post__story d-flex flex-column justify-content-between  h-100">
+        <div>
+          <h2>{{ post.title}}</h2>
 
-        <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }} <a
-            href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></h6>
+          <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }} <a
+              href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></h6>
 
 
-        <p>
-          {{ post.body|escape|linebreaks }}
-        </p>
+          <p>
+            {{ post.body|escape|linebreaks }}
+          </p>
+        </div>
+        <div class="mt-3">
+          <h6>Share this story:</h6>
+          {% load bootstrap4 %}
+
+          <form method="POST" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button class="btn btn-primary btn-md" role="button">Share!</button>
+            {% endbuttons %}
+          </form>
+        </div>
       </div>
+
     </div>
     <div class="col-sm-12 col-md-8 my-3">
       {% if post.storyimage.url != None %}
@@ -36,18 +51,7 @@
 
     </div>
   </div>
-  <div class="col-sm-12 col-md-4 my-3">
-    <h4>Share this story:</h4>
-    {% load bootstrap4 %}
 
-    <form method="POST" class="form">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      {% buttons %}
-        <button class="btn btn-primary btn-md" role="button">Share!</button>
-      {% endbuttons %}
-    </form>
-  </div>
   {% else%}
 
   <h1>Forbidden (403)</h1>

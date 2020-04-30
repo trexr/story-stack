@@ -3,6 +3,7 @@ from .models import Post
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.validators import validate_email
 import os
@@ -69,7 +70,9 @@ def post_detail(request, slug, id):
                               "subject": first_name+" wants to share a story with you!",
                       "text": "Check out my story '" + str(post) + "' on StoryStack: "+post_url})
 
-            print("email sent", email, )
+            print("email sent", email)
+
+            messages.success(request, 'Email Sent')
             return redirect("posts:view_user_post", id=id, slug=slug)
 
     else:
