@@ -4,14 +4,15 @@
 {% block title %}
 Edit Profile
 {% endblock title %}
-
 {% block content %}
-<div class="row">
+
+<a href="{% url 'password_reset' %}" class="btn btn-link">Forgot your password?</a>
+<a href="{% url 'password_change' %}" class=" btn btn-link">Change password</a>
+
+<div class=" row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <h1 class="text-center">{{ request.user }}</h1>
         <h3>Edit information</h3>
-        <p><strong>Note:</strong> Your avatar is based on your email. Change
-            your avatar at <a href="https://en.gravatar.com/">Gravatar.com</a></p>
         <form class="form-signin" method="POST">
             {% csrf_token %}
             {% bootstrap_form form %}
