@@ -15,22 +15,30 @@ installed.](https://github.com/kickstartcoding/pipenv-getting-started)
 
 From cloned repo, activate a Pipenv virtual environment:
 
-`pipenv shell`
+```
+pipenv shell
+```
+
 
 Install dependencies:
 
-`pipenv install --dev`
+```
+pipenv install --dev
 
+```
 
 Create SQLite database:
 
-`python3 manage.py migrate`
+```
+python3 manage.py migrate
+```
 
-
+```
 Start up server:
 
-`python3 manage.py runserver`
-
+```
+python3 manage.py runserver
+```
 
 ##Built With
 * Django - Backend framework
