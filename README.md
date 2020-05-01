@@ -39,15 +39,14 @@ Start up server:
 python3 manage.py runserver
 ```
 
-##Built With
+## Built With
 * Django - Backend framework
 * SQLite - 
 * 
 
-##Future Features
 
 
-##Collaborators
+## Collaborators
 * [https://github.com/tman18](https://github.com/tman18)
 * [https://github.com/KevinWong1](https://github.com/KevinWong1)
 * [https://github.com/patrick-ware](https://github.com/patrick-ware)
