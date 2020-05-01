@@ -4,25 +4,69 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 400;
 }
-
-h1 {
+#home h1 {
   font-weight: 900;
+
 }
 
 .navbar {
-  background: #ffffff
+  background: #ffffff;
+  /* border-bottom: 1px solid #f3f3f3; */
+}
+.navbar .container {
+  
 }
 
 .navbar-brand {
+  font-size: 1.1rem;
   text-transform: uppercase;
+  
+}
+
+.navbar-brand span{
+  font-weight: 700;
+
+}
+#home  .container-hero{
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+ 
+  
+}
+#home h1 {
   font-weight: 900;
+  font-size: 3.6rem;
+  line-height: 1;
 }
 
-.hero-image {
-  background: url('/static/images/smallstories_hero@2x.jpg');
-  background-size: auto;
+.hero {
+  background: url('/static/images/smallstories_hero@2x.jpg') center;
+  background-size: cover;
+  min-height: 500px;
+ 
+
 }
 
+.hp-features img{
+  max-width: 2.3rem;
+}
+
+.hero__inner{
+  max-width: 500px;
+}
+
+.hero .btn{
+  line-height: 1;
+  font-weight: 400;
+  padding-top:.45rem;
+}
+
+.hero .btn:hover{
+  line-height: 1;
+}
 .card-user {
   max-width: 80px;
 }
@@ -46,7 +90,7 @@ h1 {
 li a,
 .brand {
   color: #222222;
-  text-transform: uppercase;
+ 
 }
 
 .btn-primary {
@@ -74,3 +118,4 @@ h5 {
   background: #dddddd;
   padding: 50px;
 }
+

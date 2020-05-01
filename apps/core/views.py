@@ -17,6 +17,7 @@ def home(request):
 
     context = {
         'form': form,
+        'pageid': 'home'
     }
 
     return render(request, 'pages/home.html', context)
@@ -34,4 +35,3 @@ def notlongeravailable(request):
     }
 
     return render(request, 'pages/403.html', context)
-

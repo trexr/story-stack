@@ -1,16 +1,11 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>
-        {% block title %}
-        My Site
-        {% endblock title %}
-    </title>
+    <title>{% block title %} StoryStack {% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,23 +15,16 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
-
     <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
-
     <link href="{% static 'css/signinform.css' %}" rel="stylesheet">
-
-    <!-- Add your custom CSS to this file -->
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body id="{% firstof pageid %}">
 
     <nav class="navbar navbar-expand-md">
         <div class="container">
-            <a class="navbar-brand brand" style="margin-left: 25px;" href="/">
-                <!-- Add your logo here!  <img src="" /> -->
-                StoryStack
-            </a>
+            <a class="navbar-brand brand" href="/"> <span>Story</span>Stack</a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,23 +35,10 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <!-- <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Start</a>
-                </li> -->
-                    <!-- <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li> -->
-                    <!--<li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_all_users' %}">Users</a>
-                    </li>-->
 
-                </ul>
                 <ul class="navbar-nav ml-auto">
                     {% if request.user.is_authenticated %}
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="{% url 'posts:list'  %}">Feed</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'posts:user_list' request.user.id %}">Storyboard</a>
                     </li>
@@ -87,7 +62,7 @@
                         <a id="log-in-link" class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a id="log-in-link" class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                        <a id="log-in-link" class="nav-link" href="{% url 'signup' %}">Create Account</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -96,10 +71,8 @@
     </nav>
     </div>
 
-
-
     {% block main %}
-    <div class="container pt-2">
+    <div class="container container-hero">
 
         {# Enable Django's "messages" system #}
         {% if messages %}

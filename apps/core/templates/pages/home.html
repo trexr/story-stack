@@ -1,33 +1,29 @@
 {% extends "base.html" %} {% block title %} StoryStack - Home {% endblock title %}
 {% load bootstrap4 %}
 {% block content %}
-<style>
-  .container,
-  .pt-2 {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
-</style>
-<div class="hero-image jumbotron">
-  <div class="col-md-4" style="margin-left: 150px;">
-    <h1 style="line-height: 40px; margin-top: 40px;">Capture Your Child's Creativity!</h1>
-    <p class="lead"></p>
-    <p> A place where your child’s unique art and stories can be saved and
-      shared with the people that matter. </p>
-    <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a>
-    </p>
+
+<div class="hero jumbotron d-flex align-items-center">
+  <div class="container mt-5">
+
+    <div class="hero__inner">
+      <h1>Treasure Your Child's Creativity!</h1>
+      <p class="lead"></p>
+      <p> A place where your child’s unique art and stories can be saved and
+        shared with the people that matter. </p>
+      {% if not request.user.is_authenticated %}
+      <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a>
+
+      </p> {% endif %}
+    </div>
   </div>
 </div>
-<div class="container hp">
-  <div class="col-md-8 mx-auto">
+<div class="container hp ">
+  <div class="col-md-8 mx-auto" style="margin-top:50px">
     <h4 style="text-align: center;">Let your child's small stories create a bigger world.</h4>
     <p style="text-align: center;">Research shows that drawing can enhance your child's motor skills, develop problem
       solving, help them be more expressive and create stronger memories.</p>
   </div>
-  <div class="row" style="margin-top: 40px;">
+  <div class="row hp-features" style="margin-top: 40px">
     <div class="col">
       <img class="about-image" src="static/images/cloud_upload-24px.svg 
       " width="50" height="50" alt="">
