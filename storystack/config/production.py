@@ -2,7 +2,7 @@
 import django_heroku
 from .base import *  # noqa
 import os
-DEBUG = False
+DEBUG = True
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())

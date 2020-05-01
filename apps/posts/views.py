@@ -145,7 +145,7 @@ def post_create(request, id):
 
     context = {
         'form': form,
-        'userid': request.user
+        'userid': request.user.id
     }
 
     return render(request, 'posts/post_create.html', context)
