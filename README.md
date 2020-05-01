@@ -13,27 +13,27 @@ The website is built with a Django backend and data is stored and managed throug
 installed.](https://github.com/kickstartcoding/pipenv-getting-started)
 
 
-* From cloned repo, activate a Pipenv virtual environment:
+From cloned repo, activate a Pipenv virtual environment:
 
 ```
 pipenv shell
 ```
 
 
-* Install dependencies:
+Install dependencies:
 
 ```
 pipenv install --dev
 ```
 
-* Create SQLite database:
+Create SQLite database:
 
 ```
 python3 manage.py migrate
 ```
 
 
-* Start up server:
+Start up server:
 
 ```
 python3 manage.py runserver
