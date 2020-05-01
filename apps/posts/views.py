@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.core.validators import validate_email
 import os
 import requests
-mailgun_api_key = os.environ["MAILGUN_API_KEY"]
+from django.conf import settings
 # Create your views here.
 
 
@@ -64,7 +64,7 @@ def post_detail(request, slug, id):
                 str(authorid) + "/" + url_title
             requests.post(
                 "https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
-                auth=("api", mailgun_api_key),
+                auth=("api", settings.ANYMAIL['MAILGUN_API_KEY']),
                 data={"from": "StoryStack <user@storystack.com>",
                               "to": email,
                               "subject": first_name+" wants to share a story with you!",

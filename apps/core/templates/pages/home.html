@@ -1,17 +1,17 @@
 {% extends "base.html" %} {% block title %} StoryStack - Home {% endblock title %}
 {% load bootstrap4 %}
 {% block content %}
-  <div class="row" style="position: relative;">
-    <img class="hero-image" src="static/images/smallstories_hero@2x.jpg" width="100%" />
-    <div class="col-md-5 hero-text">
-      <h1 style="line-height: 40px;" class="">Capture Your Child's Creativity!</h1>
-      <p class="lead"></p>
-      <p> A place where your child’s unique art and stories can be saved and
-        shared with the people that matter. </p>
-      <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a></p>
+<div class="row hp" style="position: relative;">
+  <img class="hero-image" src="static/images/smallstories_hero@2x.jpg" width="100%" />
+  <div class="col-md-5 hero-text">
+    <h1 style="line-height: 40px;" class="">Capture Your Child's Creativity!</h1>
+    <p class="lead"></p>
+    <p> A place where your child’s unique art and stories can be saved and
+      shared with the people that matter. </p>
+    <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a></p>
   </div>
-    <!-- form is not displayed if user is login -->
-    <!-- {% if user.is_authenticated == False%}
+  <!-- form is not displayed if user is login -->
+  <!-- {% if user.is_authenticated == False%}
     <div class="col-md-5">
       <h4 class="card-title text-center">Log In</h4>
       {% csrf_token %}
@@ -21,32 +21,33 @@
     {% endif %}
   </div> -->
 </div>
-<div class="container">
+<div class="container hp">
   <div class="col-md-8 mx-auto">
-  <h4 style="text-align: center;">Let your child's small stories create a bigger world.</h4>
-  <p style="text-align: center;">Research shows that drawing can enhance your child's motor skills, develop problem solving, help them be more expressive and create stronger memories.</p>
+    <h4 style="text-align: center;">Let your child's small stories create a bigger world.</h4>
+    <p style="text-align: center;">Research shows that drawing can enhance your child's motor skills, develop problem
+      solving, help them be more expressive and create stronger memories.</p>
   </div>
   <div class="row" style="margin-top: 40px;">
     <div class="col">
       <img class="about-image" src="static/images/cloud_upload-24px.svg 
-      " width="50" height="50"  alt="">
+      " width="50" height="50" alt="">
       <p>Upload photos of your child's art</p>
     </div>
     <div class="col">
       <img class="about-image" src="static/images/create-24px.svg
-      " width="50" height="50"  alt="">
+      " width="50" height="50" alt="">
       <p>Record a story</p>
     </div>
     <div class="col">
       <img class="about-image" src="static/images/share-24px.svg
-      " width="50" height="50"  alt="">
+      " width="50" height="50" alt="">
       <p>Share only with the people you want</p>
     </div>
     <div class="col">
       <img class="about-image" src="static/images/dns-24px.svg
-      " width="50" height="50"  alt="">
+      " width="50" height="50" alt="">
       <p>Keep your child's creativity and watch them progress</p>
     </div>
   </div>
 
-{% endblock content %}
+  {% endblock content %}
