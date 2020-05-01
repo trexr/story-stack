@@ -1,25 +1,25 @@
 {% extends "base.html" %} {% block title %} StoryStack - Home {% endblock title %}
 {% load bootstrap4 %}
 {% block content %}
-<div class="row hp" style="position: relative;">
-  <img class="hero-image" src="static/images/smallstories_hero@2x.jpg" width="100%" />
-  <div class="col-md-5 hero-text">
-    <h1 style="line-height: 40px;" class="">Capture Your Child's Creativity!</h1>
+<style>
+  .container,
+  .pt-2 {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+</style>
+<div class="hero-image jumbotron">
+  <div class="col-md-4" style="margin-left: 150px;">
+    <h1 style="line-height: 40px; margin-top: 40px;">Capture Your Child's Creativity!</h1>
     <p class="lead"></p>
     <p> A place where your child’s unique art and stories can be saved and
       shared with the people that matter. </p>
-    <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a></p>
+    <p class="lead"></p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Create Account</a>
+    </p>
   </div>
-  <!-- form is not displayed if user is login -->
-  <!-- {% if user.is_authenticated == False%}
-    <div class="col-md-5">
-      <h4 class="card-title text-center">Log In</h4>
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log In</button>
-    </div>
-    {% endif %}
-  </div> -->
 </div>
 <div class="container hp">
   <div class="col-md-8 mx-auto">

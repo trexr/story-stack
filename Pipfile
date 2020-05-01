@@ -13,6 +13,7 @@ pillow = "*"
 requests = "*"
 django-storages = "*"
 boto3 = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
