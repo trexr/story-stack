@@ -131,21 +131,21 @@ def post_edit(request, slug, id):
 
 @login_required(login_url='/account/login/')
 def post_create(request, id):
-    userid = request.user
+
     if request.method == 'POST':
         form = forms.CreatePost(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.author = userid
+            instance.author = request.user
             instance.save()
-            return redirect('posts:user_list', id=userid)
+            return redirect('posts:user_list', id=request.user.id)
 
     else:
         form = forms.CreatePost()
 
     context = {
         'form': form,
-        'userid': userid
+        'userid': request.user
     }
 
     return render(request, 'posts/post_create.html', context)
