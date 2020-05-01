@@ -1,8 +1,4 @@
 ![StoryStack](./StoryStack.png)
-## About
-
-
-
 
 # StoryStack
 
@@ -16,16 +12,23 @@ The website is built with a Django backend and data is stored and managed throug
 *Prereq*: [You have Pipenv
 installed.](https://github.com/kickstartcoding/pipenv-getting-started)
 
+
 From cloned repo, activate a Pipenv virtual environment:
+
 `pipenv shell`
 
 Install dependencies:
+
 `pipenv install --dev`
 
+
 Create SQLite database:
+
 `python3 manage.py migrate`
 
+
 Start up server:
+
 `python3 manage.py runserver`
 
 
