@@ -24,7 +24,6 @@ Install dependencies:
 
 ```
 pipenv install --dev
-
 ```
 
 Create SQLite database:
@@ -33,7 +32,7 @@ Create SQLite database:
 python3 manage.py migrate
 ```
 
-```
+
 Start up server:
 
 ```
