@@ -146,11 +146,12 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
-ANYMAIL = {
-    'MAILGUN_API_KEY': os.environ.get('MAILGUN_API_KEY'),
-    'MAILGUN_SENDER_DOMAIN': os.environ.get('MAILGUN_DOMAIN')
-}
-
+# ANYMAIL = {
+#     'MAILGUN_API_KEY': os.environ.get('MAILGUN_API_KEY'),
+#     'MAILGUN_SENDER_DOMAIN': os.environ.get('MAILGUN_DOMAIN')
+# }
+MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY')
+MAILGUN_SENDER_DOMAIN = os.environ.get('MAILGUN_DOMAIN')
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 # need real email backend

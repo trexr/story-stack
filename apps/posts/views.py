@@ -9,7 +9,6 @@ from django.core.validators import validate_email
 import os
 import requests
 from django.conf import settings
-# Create your views here.
 
 
 @login_required(login_url='/account/login/')
@@ -66,7 +65,7 @@ def post_detail(request, slug, id):
             print(post_url)
             requests.post(
                 "https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
-                auth=("api", mailgun_api_key),
+                auth=("api", settings.MAILGUN_API_KEY),
                 data={"from": "StoryStack <user@storystack.com>",
                               "to": email,
                               "subject": first_name+" wants to share a story with you!",
