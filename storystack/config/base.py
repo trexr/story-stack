@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: On production, set SECRET_KEY env variable to override
 SECRET_KEY = '+3plb5v-1s_v$xyz)scv!c!9l1q-uk)0n0vruj1+-u2j0f2myp'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['story-stack-1.herokuapp.com', 'localhost']
 
 
 LOCAL_APPS = [
