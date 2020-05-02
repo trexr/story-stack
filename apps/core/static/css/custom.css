@@ -136,3 +136,17 @@ h5 {
    font-size: .8em;
    font-weight: normal;
 }
+
+.btn-delete{
+  border:0px;
+  background: none;
+  margin-left: 1rem;
+}
+
+.btn-delete:hover{
+  color: red;
+}
+.btn:hover{
+color: white;
+background: #111;
+}
