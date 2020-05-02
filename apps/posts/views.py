@@ -57,20 +57,22 @@ def post_detail(request, slug, id):
             email = form.cleaned_data['email']
             # Define variables for email information
             first_name = request.user.first_name
-            post = Post.objects.get(slug=slug)
-            title = str(post)
-            url_title = title.replace(" ", "-")
+            title = Post.objects.get(slug=slug)
+            story_title = str(title)
             authorid = request.user.id
-            post_url = "http://localhost:8000/posts/" + \
-                str(authorid) + "/" + url_title
-            requests.post("https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
-                          auth=("api", settings.ANYMAIL['MAILGUN_API_KEY']),
-                          data={"from": "StoryStack <user@storystack.com>",
-                                "to": email,
-                                "subject": first_name+" wants to share a story with you!",
-                                "text": "Check out my story '" + str(post) + "' on StoryStack: "+post_url})
+            story_slug = str(slug)
+            post_url = "http://" + request.get_host() + "/posts/" + \
+                str(authorid) + "/" + story_slug
+            print(post_url)
+            requests.post(
+                "https://api.mailgun.net/v3/sandboxba7fef7146b9468892448dede05c27cf.mailgun.org/messages",
+                auth=("api", mailgun_api_key),
+                data={"from": "StoryStack <user@storystack.com>",
+                              "to": email,
+                              "subject": first_name+" wants to share a story with you!",
+                      "text": "Check out my story '" + story_title + "' on StoryStack: "+post_url})
 
-            print("email sent", email)
+            print("email sent to", email)
 
             messages.success(request, 'Email Sent')
             return redirect("posts:view_user_post", id=id, slug=slug)
