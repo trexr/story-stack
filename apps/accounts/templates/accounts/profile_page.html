@@ -5,24 +5,35 @@
 {% endblock title %}
 
 {% block content %}
-<div class="row col-md-9 mx-auto profile-box">
-    <div class="col-md-2 mx-auto my-auto">
-        {% if user.avatar %}
-        <img src="{{ user.avatar }}" />
-        {% else %}
-        <img src="{{ user.gravatar }}" />
-        {% endif %}
-        <a href="{% url "avatar" %}">
-            <p>New avatar</p>
-        </a>
+<div class="row  my-5">
+    <div class="col-sm-9  mx-auto">
+        <div class="card card-signin">
+            <div class="row py-5 ">
+                <div class="col-md-2 mx-auto my-auto">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar }}" />
+                    {% else %}
+                    <img src="{{ user.gravatar }}" />
+                    {% endif %}
+                    <a href="{% url "avatar" %}">
+                        <p>New avatar</p>
+                    </a>
+
+                </div>
+                <div class="col-md-7 mx-auto my-auto">
+                    <h3>{{ user.username }}</h3>
+
+                    <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
+                    <p>{{ user.bio }}</p>
+                    {% if is_viewing_self %}
+                    <a href="{% url "edit_profile" %}" class="btn btn-primary">Edit Account</a>
+                    {% endif %}
+                    <hr>
+                    <!-- <H5>Your profiles</H5> -->
+
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-7 mx-auto my-auto">
-        <h3>{{ user.username }}</h3>
-        <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
-        <p>{{ user.bio }}
-            {% if is_viewing_self %}
-            <p> <a href="{% url "edit_profile" %}">Edit Profile</a></p>
-            {% endif %}
-    </div>
-</div>
-{% endblock %}
+    {% endblock %}
