@@ -36,8 +36,8 @@ THIRD_PARTY_APPS = [
     'bootstrap4',
     'storages',
     'requests',
-
     'crispy_forms',
+    'anymail'
 ]
 
 DJANGO_APPS = [
@@ -144,15 +144,17 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
 
-EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
+
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 # ANYMAIL = {
 #     'MAILGUN_API_KEY': os.environ.get('MAILGUN_API_KEY'),
 #     'MAILGUN_SENDER_DOMAIN': os.environ.get('MAILGUN_DOMAIN')
 # }
+# real backend in production.py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY')
 MAILGUN_SENDER_DOMAIN = os.environ.get('MAILGUN_DOMAIN')
+
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-# need real email backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

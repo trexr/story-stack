@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a6896b6a3ff900a8c77ac32d9e667e8ba1b7d5f56266d3b085ef7b0464223d10"
+            "sha256": "fcfff5049d7712124f8b2312f8b12ba1da2a829618a2998de797ff203477db0a"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -31,18 +31,18 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:71323c0d241d264eb48fbd9b9aa3d3783e6da68ca1dbd3db51288bcfe4fd8be1",
-                "sha256:80596cfb805694e5c78295bf9e86c6ea0d47c46e788a5e44a8a0421f3bddff72"
+                "sha256:6374e39ea66433250ac6e4726623fe59ec32bfd52e5c871140c883ab72b0375c",
+                "sha256:7a2474db6576d7d3f5c3336ec54450e34211d44e2342e501a67e2fae35916e63"
             ],
             "index": "pypi",
-            "version": "==1.13.0"
+            "version": "==1.13.1"
         },
         "botocore": {
             "hashes": [
-                "sha256:4b676b5d7d551e6cec9b5d9fc0811779534774f190208ae7f7a7f7309434b5bf",
-                "sha256:5025687275b0417d6747b45c6df6b65c1b05bcf8c22b339371c2bffa02a8e370"
+                "sha256:879cedb22baf9446323240f1cf57d4e0e7ba262ba6fde6d3540cf7fdd7ddad34",
+                "sha256:c6d3dd976c1462a4e0f2dabde09c38de2a641e6b6bb0af505ac8465735796367"
             ],
-            "version": "==1.16.0"
+            "version": "==1.16.1"
         },
         "certifi": {
             "hashes": [
@@ -72,6 +72,18 @@
             ],
             "index": "pypi",
             "version": "==3.0.5"
+        },
+        "django-anymail": {
+            "extras": [
+                "sendgrid",
+                "sparkpost"
+            ],
+            "hashes": [
+                "sha256:7af1076f383fb3b62b301949ea8f7d87a41376015309ffc35a246a1726060429",
+                "sha256:a2bd7a40aa91a1033892630652d3ca8148de70fa2927eb4eebde239fe705f0f4"
+            ],
+            "index": "pypi",
+            "version": "==7.1.0"
         },
         "django-bootstrap4": {
             "hashes": [
@@ -259,6 +271,13 @@
                 "sha256:fcd71e08c0aee99aca1b73f45478549ee7e7fc006d51b37bec9e9def7dc22b69"
             ],
             "version": "==2.0"
+        },
+        "sparkpost": {
+            "hashes": [
+                "sha256:75d1a408c7a581377ac9cc2cfef1de1249e49cb631921033cc3ff115b08c2c81",
+                "sha256:abaf5045d04d821f9c29c965d97173f52f6acc2051debca6f122ea7456cc1733"
+            ],
+            "version": "==1.3.6"
         },
         "sqlparse": {
             "hashes": [
