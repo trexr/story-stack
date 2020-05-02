@@ -55,7 +55,7 @@ def post_detail(request, slug, id):
             # Get email from form
             email = form.cleaned_data['email']
             # Define variables for email information
-            first_name = request.user.first_name
+            user_email = request.user.email
             title = Post.objects.get(slug=slug)
             story_title = str(title)
             authorid = request.user.id
@@ -68,7 +68,7 @@ def post_detail(request, slug, id):
                 auth=("api", settings.MAILGUN_API_KEY),
                 data={"from": "StoryStack <user@storystack.com>",
                               "to": email,
-                              "subject": first_name+" wants to share a story with you!",
+                              "subject": user_email+" wants to share a story with you!",
                       "text": "Check out my story '" + story_title + "' on StoryStack: "+post_url})
 
             print("email sent to", email)
