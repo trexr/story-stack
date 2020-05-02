@@ -11,7 +11,7 @@ body {
 
 .navbar {
   background: #ffffff;
-  /* border-bottom: 1px solid #f3f3f3; */
+  border-bottom: 1px solid #f3f3f3;
 }
 .navbar .container {
   
@@ -50,10 +50,21 @@ body {
 
 }
 
+.card-signin .card-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.hp-features{
+  max-width: 900px;
+  margin:auto;
+}
 .hp-features img{
   max-width: 2.3rem;
 }
-
+.hp-features p{
+  max-width: 180px;
+  margin:auto;
+}
 .hero__inner{
   max-width: 500px;
 }
@@ -119,3 +130,23 @@ h5 {
   padding: 50px;
 }
 
+
+.posts__date{
+   color: #222222;
+   font-size: .8em;
+   font-weight: normal;
+}
+
+.btn-delete{
+  border:0px;
+  background: none;
+  margin-left: 1rem;
+}
+
+.btn-delete:hover{
+  color: red;
+}
+.btn:hover{
+color: white;
+background: #111;
+}

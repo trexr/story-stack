@@ -29,7 +29,21 @@
                     <a href="{% url "edit_profile" %}" class="btn btn-primary">Edit Account</a>
                     {% endif %}
                     <hr>
-                    <!-- <H5>Your profiles</H5> -->
+
+                    <!-- <H5>Your profiles</H5>
+                    Coming Soon: Add your child's individual profiles
+                    {% for profile in artprofiles %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>{{ profile.profilename }} </p>
+                        </div>
+                        <div class="col-md-4">
+                            {% if profile.birthday is not None %}
+                            <p>{{ profile.birthday}} </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %} -->
 
 
                 </div>

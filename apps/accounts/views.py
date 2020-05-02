@@ -13,16 +13,21 @@ from apps.accounts.models import User
 
 
 def log_in(request):
+    print("login_in")
     if request.method == 'POST':
+        print('tPOST')
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             # User has specified valid credentials, have user log-in, and then
             # redirect back home
+            print('testser',  form.get_user())
             login(request, form.get_user())
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
-            return redirect('posts:user_list', request.user)
+            print('render', request)
+            return redirect('/posts')
     else:
+        print('GET!!!!!!!!')
         form = AuthenticationForm()
 
     context = {
@@ -32,6 +37,7 @@ def log_in(request):
 
 
 def sign_up(request):
+
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
@@ -51,6 +57,7 @@ def sign_up(request):
 
 
 def logout_view(request):
+    print("log_out view")
     logout(request)
     messages.success(request, 'Logged out.')
     return redirect('home')

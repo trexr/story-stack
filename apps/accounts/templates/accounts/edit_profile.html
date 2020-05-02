@@ -5,18 +5,19 @@
 Edit Profile
 {% endblock title %}
 {% block content %}
-<div class="row mt-5 mb-3">
-    <div class="col text-center ">
-        <h6> Edit Account </h6>
-        <h1 class="">{{ request.user }}</h1>
-        <p class='text-center'>
-            <a href="{% url 'password_change' %}" class="btn-link "> Change
-                Password</a>
-        </p>
+<div class="card-signin row p-5 my-5 mx-auto" style="max-width: 700px;">
+    <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
+        <div class=" text-center ">
+            <h6> Edit Account </h6>
+            <h1 class="">{{ request.user }}</h1>
+            <p class='text-center'>
+                <a href="{% url 'password_change' %}" class="btn-link "> Change
+                    Password</a>
+            </p>
+        </div>
     </div>
-</div>
-<div class=" row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+    <div class="col-sm-9 col-md-7 col-lg-12 mx-auto">
 
 
         <h3>Edit information</h3>

@@ -11,7 +11,7 @@ import requests
 from django.conf import settings
 
 
-# TODO: implement view all friends postings
+# TODO: implement a view all friends posting feed
 @login_required(login_url='/account/login/')
 def view_all_users_posts(request):
     # author = request.user
@@ -78,7 +78,7 @@ def post_detail(request, slug, id):
     else:
         form = forms.EmailForm()
 
-    post = Post.objects.get(slug=slug)
+    post = Post.objects.get(author_id=id, slug=slug)
 
     if post.deleted == True:
         return redirect("posts:user_list", id=id)
