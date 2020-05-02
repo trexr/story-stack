@@ -18,7 +18,7 @@
 
   {% endif %}
   <div class="row align-items-top align-content-stretch">
-    <div class="col-sm-12 col-md-4 my-3">
+    <div class="col-sm-12 col-md-6 my-3">
       <div class="post__story d-flex flex-column justify-content-between  h-100">
         <div>
           <h2>{{ post.title}}</h2>
@@ -48,7 +48,7 @@
       </div>
 
     </div>
-    <div class="col-sm-12 col-md-8 my-3">
+    <div class="col-sm-12 col-md-6 my-3">
       {% if post.storyimage.url != None %}
       <div class="post__img shadow">
         <img class="img-fluid" src=" {{  post.storyimage.url }}" />
