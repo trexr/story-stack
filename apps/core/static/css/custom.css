@@ -11,7 +11,7 @@ body {
 
 .navbar {
   background: #ffffff;
-  /* border-bottom: 1px solid #f3f3f3; */
+  border-bottom: 1px solid #f3f3f3;
 }
 .navbar .container {
   
@@ -48,6 +48,11 @@ body {
   min-height: 500px;
  
 
+}
+
+.card-signin .card-title {
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .hp-features img{
@@ -119,3 +124,9 @@ h5 {
   padding: 50px;
 }
 
+
+.posts__date{
+   color: #222222;
+   font-size: .8em;
+   font-weight: normal;
+}
