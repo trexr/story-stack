@@ -6,6 +6,7 @@
 {% block breadcrumbs %}
 <div class="my-4">
   <div class="breadcrumbs">
+
     <a href="{% url 'posts:user_list' post.author.id%}">Storyboard</a>
     {% block crumbs %}
     {% if post.title %} &rsaquo; {{ post.title }}{% endif %}
@@ -13,20 +14,22 @@
   </div>
   {% endblock %}
 
+  {% endif %}
   <div class="row align-items-top align-content-stretch">
     <div class="col-sm-12 col-md-4 my-3">
       <div class="post__story d-flex flex-column justify-content-between  h-100">
         <div>
           <h2>{{ post.title}}</h2>
 
-          <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }} <a
-              href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a></h6>
+          <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }} {% if user.id == post.author_id %}<a
+              href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a> {% endif %}</h6>
 
 
           <p>
             {{ post.body|escape|linebreaks }}
           </p>
         </div>
+        {% if user.id == post.author_id %}
         <div class="mt-3">
           <h6>Share this story:</h6>
           {% load bootstrap4 %}
@@ -39,6 +42,7 @@
             {% endbuttons %}
           </form>
         </div>
+        {% endif %}
       </div>
 
     </div>
@@ -52,14 +56,9 @@
     </div>
   </div>
 
-  {% else%}
-
-  <h1>Forbidden (403)</h1>
-
-  <p>CSRF verification failed. Request aborted.</p>
 
 
-  {% endif %}
+
 </div>
 
 {% endblock %}
