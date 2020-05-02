@@ -21,7 +21,7 @@
         <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
         <p>{{ user.bio }}
             {% if is_viewing_self %}
-            <a href="{% url "edit_profile" %}">Edit Profile</a>
+            <p> <a href="{% url "edit_profile" %}">Edit Profile</a></p>
             {% endif %}
     </div>
 </div>
