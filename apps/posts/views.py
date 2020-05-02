@@ -11,11 +11,11 @@ import requests
 from django.conf import settings
 
 
+# TODO: implement view all friends postings
 @login_required(login_url='/account/login/')
 def view_all_users_posts(request):
     # author = request.user
     authorid = request.user.id
-
     # posts = Post.objects.filter(deleted=False).order_by('date')
     # posts_by_user = posts.filter(author=author)
 
@@ -25,7 +25,6 @@ def view_all_users_posts(request):
     }
 
     # return redirect('posts:user_list', id=authorid)
-    # TODO: may want to create feed with friends stories
     return render(request, 'posts/view_all_users_posts.html', context)
 
 
@@ -79,7 +78,6 @@ def post_detail(request, slug, id):
     else:
         form = forms.EmailForm()
 
-    # return HttpResponse(slug)
     post = Post.objects.get(slug=slug)
 
     if post.deleted == True:
@@ -95,7 +93,7 @@ def post_detail(request, slug, id):
 
 @login_required(login_url='/account/login/')
 def post_edit(request, slug, id):
-    # return HttpResponse(slug)
+
     post = Post.objects.get(author_id=id, slug=slug)
 
     form = forms.CreatePost(instance=post)
@@ -116,8 +114,7 @@ def post_edit(request, slug, id):
                 'post':  instance,
 
             }
-            print('!!!!!', instance.slug)
-            # return render(request, 'posts/post_detail.html', context)
+
             return redirect("posts:view_user_post", id=instance.author_id, slug=instance.slug)
 
     context = {

@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 
-# Two example views. Change or delete as necessary.
-
 
 def home(request):
     if request.method == 'POST':
@@ -21,6 +19,8 @@ def home(request):
     }
 
     return render(request, 'pages/home.html', context)
+
+# TODO: Will create an ABOUT page
 
 
 def about(request):

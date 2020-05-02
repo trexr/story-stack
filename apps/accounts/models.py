@@ -3,8 +3,7 @@ import hashlib
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Custom User class which extends built-in User. Presently, just adds a "bio"
-# and a gravatar method. Feel free to add your own new fields here!
+# Custom User class which extends built-in User.
 
 
 class User(AbstractUser):
@@ -22,4 +21,3 @@ class User(AbstractUser):
             size_str = ''
 
         return GRAVATAR_URL % (digest, size_str)
-
