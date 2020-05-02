@@ -7,19 +7,24 @@
     <h1 class="">Storyboard</h1>
   </div>
   <div class="col-sm-4 col-md-4  text-right">
+    {% if  posts_by_user %}
     <a href="{% url 'posts:create' authorid %}">
       <span class=" btn btn-primary">
-        Add Another +</span></a>
+        Add Another</span></a>
+    {% endif %}
 
   </div>
 </div>
 <div class="row">
 
+  {% if  posts_by_user %}
   {% for post in posts_by_user %}
   <div class=" col-sm-6 col-md-4  mb-4">
     <a href="{% url 'posts:view_user_post' post.author.id post.slug %}">
-      <h5 class="text-left">{{ post.title}}</h5>
-      <h6 class="text-left posts__date">{{ post.date|date:"M d, Y" }}</h6>
+      <div class="d-flex align-items-center justify-content-between">
+        <h5 class="text-left">{{ post.title}}</h5>
+        <h6 class="text-left posts__date">{{ post.date|date:"M d, Y" }}</h6>
+      </div>
       <div class="post__img shadow">
         {% if post.storyimage.url != None %}
         <img class=" img-fluid" src="{{  post.storyimage.url }}" />
@@ -29,6 +34,22 @@
     </a>
   </div>
   {% endfor %}
+  {% else %}
+  <div class=" col-sm-12 mx-auto">
+    <div class="jumbo">
+      <p>
+        This is where all your art will show.
 
+
+      </p>
+      <a href="{% url 'posts:create' authorid %}">
+        <span class=" btn btn-primary">
+          Create your first Post +</span></a>
+
+    </div>
+  </div>
+</div>
+
+{% endif%}
 </div>
 {% endblock %}
