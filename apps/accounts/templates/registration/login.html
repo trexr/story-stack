@@ -7,10 +7,13 @@
   <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
     <div class="card card-signin my-5">
       <div class="card-body">
-        <h5 class="card-title text-center">Create Account</h5>
+        <h5 class="card-title text-center">Log In</h5>
         <form method="post" novalidate>
           {% csrf_token %}
           {{ form|crispy }}
+          {% if request.GET.next %}
+          <input type="hidden" name='next' value="{{request.GET.next}}">
+          {% endif %}
           <button type="submit" class="btn btn-primary">Log in</button>
           <a href="{% url 'password_reset' %}" class="btn btn-link">Forgot your password?</a>
         </form>

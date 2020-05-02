@@ -19,10 +19,11 @@ class Post(models.Model):
 
     # method for generating unique post urls - aka slugs
     def get_unique_slug(self):
+        userid = self.author_id
         slug = slugify(self.title)
         unique_slug = slug
         num = 1
-        while Post.objects.filter(slug=unique_slug).exists():
+        while Post.objects.filter(author_id=userid, slug=unique_slug).exists():
             unique_slug = '{}-{}'.format(slug, num)
             num += 1
         return unique_slug

@@ -114,7 +114,7 @@ LOGIN_URL = '/account/login/'
 AUTH_USER_MODEL = 'accounts.User'
 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/posts'
 LOGOUT_REDIRECT_URL = '/'
 
 # S3 config
