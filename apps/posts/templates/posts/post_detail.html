@@ -25,11 +25,9 @@
 
           <h6>{{ post.author }} - {{ post.date|date:"M d, Y" }} {% if user.id == post.author_id %}<a
               href={% url "posts:edit_post"  post.author.id post.slug %}>edit</a> {% endif %}</h6>
-
-
-          <p>
+          <pre>
             {{ post.body|escape|linebreaks }}
-          </p>
+          </pre>
         </div>
         {% if user.id == post.author_id %}
         <div class="mt-3">
