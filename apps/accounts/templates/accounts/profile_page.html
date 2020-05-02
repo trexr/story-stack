@@ -19,12 +19,10 @@
     <div class="col-md-7 mx-auto my-auto">
         <h3>{{ user.username }}</h3>
         <p><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
-        <p>{{ user.bio }}Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
-
-        {% if is_viewing_self %}
-        <a href="{% url "edit_profile" %}">Edit Profile</a>
-        {% endif %}
+        <p>{{ user.bio }}
+            {% if is_viewing_self %}
+            <a href="{% url "edit_profile" %}">Edit Profile</a>
+            {% endif %}
     </div>
 </div>
 {% endblock %}
