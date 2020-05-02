@@ -6,6 +6,7 @@ StoryStack is a Python app for users to save and share their child’s unique ar
 
 The website is built with a Django backend and data is stored and managed through SQLite. The frontend is Django-templated and uses Bootstrap 4.4.1 CSS.
 
+[Visit us here](http://story-stack-1.herokuapp.com/)
 
 ## Getting Started
 
